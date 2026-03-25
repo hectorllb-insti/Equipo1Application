@@ -32,6 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.hectorllb.equipo1application.screens.InicioScreen
 import com.hectorllb.equipo1application.ui.theme.AzulOscuro
 import com.hectorllb.equipo1application.ui.theme.Equipo1ApplicationTheme
 import com.hectorllb.equipo1application.ui.theme.FondoGris
@@ -49,112 +50,5 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// ── Pantalla principal ────────────────────────────────────────
-@Composable
-fun InicioScreen() {
-    Scaffold(
-        topBar = { InicioTopBar() },
-        containerColor = FondoGris
-    ) { innerPadding ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
-            contentAlignment = Alignment.Center
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(16.dp),
-                modifier = Modifier.padding(horizontal = 40.dp)
-            ) {
-                // Título
-                Text(
-                    text = "Bienvenido",
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.DarkGray
-                )
 
-                Spacer(modifier = Modifier.height(8.dp))
-
-                // Botón Login (relleno)
-                BotonPrincipal(
-                    texto = "Login",
-                    onClick = { /* TODO: navegar a Login */ }
-                )
-
-                // Botón Registrarse (contorno)
-                BotonContorno(
-                    texto = "Registrarse",
-                    onClick = { /* TODO: navegar a Registro */ }
-                )
-
-                // Botón Miuguago (color morado)
-                BotonSecundario(
-                    texto = "Miuguago",
-                    onClick = { /* TODO */ }
-                )
-            }
-        }
-    }
-}
-
-//Top Bar
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun InicioTopBar() {
-    TopAppBar(
-        title = { Text("Inicio", color = Color.White) },
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = AzulOscuro
-        )
-    )
-}
-
-//Botones reutilizables
-@Composable
-fun BotonPrincipal(texto: String, onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = AzulOscuro)
-    ) {
-        Text(texto, color = Color.White, fontSize = 16.sp)
-    }
-}
-
-@Composable
-fun BotonContorno(texto: String, onClick: () -> Unit) {
-    OutlinedButton(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = ButtonDefaults.outlinedButtonColors(contentColor = AzulOscuro)
-    ) {
-        Text(texto, fontSize = 16.sp)
-    }
-}
-
-@Composable
-fun BotonSecundario(texto: String, onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = MoradoClaro)
-    ) {
-        Text(texto, color = Color.White, fontSize = 16.sp)
-    }
-}
-
-//Preview
-@Preview(showSystemUi = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
-@Composable
-fun PreviewInicio() {
-    Equipo1ApplicationTheme {
-        InicioScreen()
-    }
-}
 
