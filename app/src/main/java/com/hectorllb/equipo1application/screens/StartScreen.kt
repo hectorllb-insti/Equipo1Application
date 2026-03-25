@@ -35,7 +35,8 @@ import com.hectorllb.equipo1application.ui.theme.MoradoClaro
 @Composable
 fun StartScreen(
     onRegistro: () -> Unit = {},
-    onLogin: () -> Unit = {}            ) {
+    onLogin: () -> Unit = {},
+    onMinijuego: () -> Unit = {} ) {
     Scaffold(
         topBar = { InicioTopBar() },
         containerColor = FondoGris
@@ -73,10 +74,10 @@ fun StartScreen(
                     onClick = onRegistro
                 )
 
-                // Botón Miuguago (color morado)
+                // Botón Minijuego (color morado)
                 BotonSecundario(
-                    texto = "Miuguago",
-                    onClick = { /* TODO */ }
+                    texto = "Minijuego",
+                    onClick = onMinijuego
                 )
             }
         }
@@ -123,10 +124,10 @@ fun BotonContorno(texto: String, onClick: () -> Unit) {
 @Composable
 fun BotonSecundario(texto: String, onClick: () -> Unit) {
     Button(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = MoradoClaro)
+            onClick = onClick,
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(24.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = MoradoClaro)
     ) {
         Text(texto, color = Color.White, fontSize = 16.sp)
     }

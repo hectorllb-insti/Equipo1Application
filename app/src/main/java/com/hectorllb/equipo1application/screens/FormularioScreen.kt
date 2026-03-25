@@ -1,10 +1,9 @@
 package com.hectorllb.equipo1application.screens
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -12,20 +11,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hectorllb.equipo1application.ui.theme.AzulOscuro
-import com.hectorllb.equipo1application.ui.theme.Equipo1ApplicationTheme
 import com.hectorllb.equipo1application.ui.theme.FondoGris
 
 @Composable
-fun FormularioScreen(
+fun FormularioScreen (
     titulo: String,          // "Crear cuenta" o "Iniciar sesión"
     tituloTopBar: String,    // "Registro" o "Login"
     textBoton: String,       // "Aceptar" o "Iniciar sesión"
-    onAceptar: () -> Unit = {},
-    onVolver: () -> Unit = {}
+    onVolver: () -> Unit = {},
+    onAccion: (String, String) -> Unit
 ) {
     var usuario by remember { mutableStateOf("") }
     var contrasena by remember { mutableStateOf("") }
@@ -80,7 +77,9 @@ fun FormularioScreen(
 
                 BotonPrincipal(
                     texto = textBoton,
-                    onClick = onAceptar
+                    onClick = {
+                        onAccion(usuario, contrasena)
+                    }
                 )
             }
         }
@@ -95,7 +94,7 @@ fun FormularioTopBar(titulo: String, onVolver: () -> Unit) {
         navigationIcon = {
             IconButton(onClick = onVolver) {
                 Icon(
-                    imageVector = Icons.Default.ArrowBack,
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Volver",
                     tint = Color.White
                 )
