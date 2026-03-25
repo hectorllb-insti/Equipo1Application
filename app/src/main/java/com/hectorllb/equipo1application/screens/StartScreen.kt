@@ -33,7 +33,9 @@ import com.hectorllb.equipo1application.ui.theme.MoradoClaro
 
 // ── Pantalla principal ────────────────────────────────────────
 @Composable
-fun InicioScreen() {
+fun StartScreen(
+    onRegistro: () -> Unit = {},
+    onLogin: () -> Unit = {}            ) {
     Scaffold(
         topBar = { InicioTopBar() },
         containerColor = FondoGris
@@ -62,13 +64,13 @@ fun InicioScreen() {
                 // Botón Login (relleno)
                 BotonPrincipal(
                     texto = "Login",
-                    onClick = { /* TODO: navegar a Login */ }
+                    onClick = onLogin
                 )
 
                 // Botón Registrarse (contorno)
                 BotonContorno(
                     texto = "Registrarse",
-                    onClick = { /* TODO: navegar a Registro */ }
+                    onClick = onRegistro
                 )
 
                 // Botón Miuguago (color morado)
@@ -136,6 +138,6 @@ fun BotonSecundario(texto: String, onClick: () -> Unit) {
 @Composable
 fun PreviewInicio() {
     Equipo1ApplicationTheme {
-        InicioScreen()
+        StartScreen()
     }
 }
