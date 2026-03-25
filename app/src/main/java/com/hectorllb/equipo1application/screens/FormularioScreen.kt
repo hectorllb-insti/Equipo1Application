@@ -1,5 +1,6 @@
 package com.hectorllb.equipo1application.screens
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -11,9 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hectorllb.equipo1application.ui.theme.AzulOscuro
+import com.hectorllb.equipo1application.ui.theme.Equipo1ApplicationTheme
 import com.hectorllb.equipo1application.ui.theme.FondoGris
 
 @Composable
